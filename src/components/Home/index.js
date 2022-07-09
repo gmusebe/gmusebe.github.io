@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import AnimatedLetters from '../AnimatedLetters';
-import Loader from 'react-loaders'
 import Logo from './Logo'
 import './index.scss';
 
@@ -35,7 +34,6 @@ const Home = () => {
         <Logo />
 
         </div>
-        <Loader type='pacman' />
       </>
     );
 }
