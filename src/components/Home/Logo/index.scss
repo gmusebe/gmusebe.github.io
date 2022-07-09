@@ -5,37 +5,22 @@
   position: absolute;
   top: 0;
   right: 55%;
-  bottom: 50;
+  bottom: 65%;
   left: 48%;
   margin: auto;
 
   img {
-    width: 600px;
+    width: 500px;
     height: auto;
   
   }
-}
 
-.solid-logo {
-  position: absolute;
-  top: auto;
-  right: auto;
-  bottom: auto;
-  left: 0;
-  margin: auto;
-
-  
-
-}
-
-
-
-
-.text-zone{
-  position: absolute;
-  left: 25%;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 40%;
-  max-height: 90%;
-}
+  .solid-logo {
+    position: absolute;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: 0;
+    margin: auto;
+    
+  }}
