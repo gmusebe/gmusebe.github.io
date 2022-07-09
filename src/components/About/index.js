@@ -1,9 +1,12 @@
 import AnimatedLetters from '../AnimatedLetters'
 import { useState } from 'react';
 import './index.scss'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngular, faCss3, faHtml5, faJsSquare, faReact, faGitAlt } from '@fortawesome/free-brands-svg-icons';
-
+import Python from '../../assets/images/python.svg'
+import R from '../../assets/images/rstudio.svg'
+import SQL from '../../assets/images/mysql.svg'
+import PostgreSQL from '../../assets/images/postgresql.svg'
+import Git from '../../assets/images/git.svg'
+import d3 from '../../assets/images/d3-js.svg'
 const About = () => {
 
   const [letterClass] = useState('text-animate')
@@ -33,22 +36,19 @@ const About = () => {
       <div className='stage-cube-cont'>
         <div className='cubespinner'>
           <div className='face1'>
-            <FontAwesomeIcon icon={faAngular} color="#DD0031" />
+          <img width="100px" src={Python} alt="logo" />
           </div>
           <div className='face2'>
-            <FontAwesomeIcon icon={faHtml5} color="#DD0031" />
+          <img width="100px" src={R} alt="logo" />
           </div>
           <div className='face3'>
-            <FontAwesomeIcon icon={faCss3} color="#DD0031" />
+          <img width="100px" src={SQL} alt="logo" />
           </div>
           <div className='face4'>
-            <FontAwesomeIcon icon={faReact} color="#DD0031" />
-          </div>
-          <div className='face5'>
-            <FontAwesomeIcon icon={faJsSquare} color="#DD0031" />
+          <img width="100px" src={PostgreSQL} alt="logo" />
           </div>
           <div className='face6'>
-            <FontAwesomeIcon icon={faGitAlt} color="#DD0031" />
+          <img width="100px" src={d3} alt="logo" />
           </div>
         </div>
       </div>
