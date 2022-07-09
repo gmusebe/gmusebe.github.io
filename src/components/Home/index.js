@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import AnimatedLetters from '../AnimatedLetters';
+import Logo from './Logo'
 import './index.scss';
 
 const Home = () => {
@@ -8,6 +9,12 @@ const Home = () => {
 
     const nameArray = [' ','M', 'u', 's', 'e', 'b', 'e', ' ', 'I', 'v', 'a', 'n']
     const jobArray = ['d', 'a', 't', 'a', ' ', 'a', 'n', 'a', 'l', 'y', 's', 't']
+
+    // useEffect(() => {
+    //   return setTimeout(() => {
+    //     setLetterClass('text-animate-hover')
+    //   }, 4000)
+    // }, [])
 
     return (
       <div className="container home-page">
@@ -29,6 +36,7 @@ const Home = () => {
           <h2>SQL / Python / R / PowerBI</h2>
           <Link to="/contact" className='flat-button'>CONTACT ME</Link>
         </div>
+        <Logo />
 
       </div>
     );
