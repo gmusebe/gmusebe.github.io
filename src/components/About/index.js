@@ -5,14 +5,17 @@ import Python from '../../assets/images/python.svg'
 import R from '../../assets/images/rstudio.svg'
 import SQL from '../../assets/images/mysql.svg'
 import PostgreSQL from '../../assets/images/postgresql.svg'
-import Git from '../../assets/images/git.svg'
 import d3 from '../../assets/images/d3-js.svg'
+import Loader from 'react-loaders'
+
 const About = () => {
 
   const [letterClass] = useState('text-animate')
 
   return (
-    <div className='container about-page'>
+
+    <>
+      <div className='container about-page'>
       <div className='text-zone'>
         <h1>
           <AnimatedLetters
@@ -52,7 +55,9 @@ const About = () => {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+      <Loader type='pacman' />
+    </>
   )
 }
 
