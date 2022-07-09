@@ -6,6 +6,7 @@ import R from '../../assets/images/rstudio.svg'
 import SQL from '../../assets/images/mysql.svg'
 import PostgreSQL from '../../assets/images/postgresql.svg'
 import d3 from '../../assets/images/d3-js.svg'
+import Git from '../../assets/images/git.svg'
 import Loader from 'react-loaders'
 
 const About = () => {
@@ -25,33 +26,36 @@ const About = () => {
           />
         </h1>
         <p>
-          I am self-driven, contemplative coder in data analytics. Having a Bachelors Honours in Actuarial Science gives me the perfect base for analyzing and interprating data into summarize beneficial for conclusive and apt decision making.
+          I am self-driven, contemplative coder in data analytics. Having a Bachelors Honours in Actuarial Science gives me the perfect base for analyzing and interprating data into insightful summaries beneficial for conclusive and apt decision making.
         </p>
         <p>
-          Consistently rewarded for success in planning and operational improvements in streamlining business process and conversion of the same into system processes.
+          I have consistently been rewarded for success in planning and operational improvements in streamlining business processed and conversion of the same into system processes.
         </p>
         <p>
           I am confident, naturally curious, and ever working to be productive and offer obligatory value, consistently so, solving one task efficiently per time.
-          I am a family person, I love mountain climbing and growth oriented.
+          I am a family person, I love mountain climbing and I am growth oriented.
         </p>
       </div>
 
       <div className='stage-cube-cont'>
         <div className='cubespinner'>
           <div className='face1'>
-          <img width="100px" src={Python} alt="logo" />
+          <img width="100px" src={d3} alt="logo" />
           </div>
           <div className='face2'>
-          <img width="100px" src={R} alt="logo" />
-          </div>
-          <div className='face3'>
           <img width="100px" src={SQL} alt="logo" />
           </div>
+          <div className='face3'>
+          <img width="100px" src={R} alt="logo" />
+          </div>
           <div className='face4'>
+          <img width="100px" src={Git} alt="logo" />
+          </div>
+          <div className='face5'>
           <img width="100px" src={PostgreSQL} alt="logo" />
           </div>
           <div className='face6'>
-          <img width="100px" src={d3} alt="logo" />
+          <img width="100px" src={Python} alt="logo" />
           </div>
         </div>
       </div>
