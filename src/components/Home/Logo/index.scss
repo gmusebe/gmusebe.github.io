@@ -1,1 +1,41 @@
+.logo-container {
+  z-index: 0;
+  width: 0px;
+  height: 60px;
+  position: absolute;
+  top: 0;
+  right: 55%;
+  bottom: 50;
+  left: 48%;
+  margin: auto;
 
+  img {
+    width: 600px;
+    height: auto;
+  
+  }
+}
+
+.solid-logo {
+  position: absolute;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  left: 0;
+  margin: auto;
+
+  
+
+}
+
+
+
+
+.text-zone{
+  position: absolute;
+  left: 25%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40%;
+  max-height: 90%;
+}
