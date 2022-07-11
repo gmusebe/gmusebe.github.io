@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/react-portfolio/static/css/main.e162c667.css",
+    "main.css": "/react-portfolio/static/css/main.18cfb6fc.css",
     "main.js": "/react-portfolio/static/js/main.c5a8a652.js",
     "static/js/787.a2cb61a6.chunk.js": "/react-portfolio/static/js/787.a2cb61a6.chunk.js",
     "static/media/LogoS_.png": "/react-portfolio/static/media/LogoS_.088b02577746f806944d.png",
@@ -15,12 +15,12 @@
     "static/media/rstudio.svg": "/react-portfolio/static/media/rstudio.7e320b4d978077a281e6623e327b9399.svg",
     "static/media/d3-js.svg": "/react-portfolio/static/media/d3-js.a874f692ea75598cc330358f84a4966c.svg",
     "static/media/git.svg": "/react-portfolio/static/media/git.b6410b5c85d46dbe6df0a64306fcccba.svg",
-    "main.e162c667.css.map": "/react-portfolio/static/css/main.e162c667.css.map",
+    "main.18cfb6fc.css.map": "/react-portfolio/static/css/main.18cfb6fc.css.map",
     "main.c5a8a652.js.map": "/react-portfolio/static/js/main.c5a8a652.js.map",
     "787.a2cb61a6.chunk.js.map": "/react-portfolio/static/js/787.a2cb61a6.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e162c667.css",
+    "static/css/main.18cfb6fc.css",
     "static/js/main.c5a8a652.js"
   ]
 }
