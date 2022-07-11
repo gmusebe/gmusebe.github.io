@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/react-portfolio/static/css/main.18cfb6fc.css",
+    "main.js": "/react-portfolio/static/js/main.c5a8a652.js",
+    "static/js/787.a2cb61a6.chunk.js": "/react-portfolio/static/js/787.a2cb61a6.chunk.js",
+    "static/media/LogoS_.png": "/react-portfolio/static/media/LogoS_.088b02577746f806944d.png",
+    "static/media/LogoS_1.png": "/react-portfolio/static/media/LogoS_1.10cc808b2814858de84b.png",
+    "static/media/helvetica-neu.ttf": "/react-portfolio/static/media/helvetica-neu.8a19678078a6b21c8057.ttf",
+    "static/media/LaBelleAurore.woff2": "/react-portfolio/static/media/LaBelleAurore.a83c1c58fd7e43972e4a.woff2",
+    "static/media/CoolveticaRg-Regular.woff2": "/react-portfolio/static/media/CoolveticaRg-Regular.7d1f3b1dd46ad6557a17.woff2",
+    "static/media/postgresql.svg": "/react-portfolio/static/media/postgresql.b43d516d6f3c376d49158ff87195380c.svg",
+    "static/media/mysql.svg": "/react-portfolio/static/media/mysql.57a5e8713bad345e6b9c63e5fd1013dc.svg",
+    "static/media/python.svg": "/react-portfolio/static/media/python.7680610a6f1df48d4888b2e9bf9021c1.svg",
+    "index.html": "/react-portfolio/index.html",
+    "static/media/rstudio.svg": "/react-portfolio/static/media/rstudio.7e320b4d978077a281e6623e327b9399.svg",
+    "static/media/d3-js.svg": "/react-portfolio/static/media/d3-js.a874f692ea75598cc330358f84a4966c.svg",
+    "static/media/git.svg": "/react-portfolio/static/media/git.b6410b5c85d46dbe6df0a64306fcccba.svg",
+    "main.18cfb6fc.css.map": "/react-portfolio/static/css/main.18cfb6fc.css.map",
+    "main.c5a8a652.js.map": "/react-portfolio/static/js/main.c5a8a652.js.map",
+    "787.a2cb61a6.chunk.js.map": "/react-portfolio/static/js/787.a2cb61a6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.18cfb6fc.css",
+    "static/js/main.c5a8a652.js"
+  ]
+}
