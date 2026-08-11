@@ -36,8 +36,17 @@ jobs:
           # warning should not block a deploy.
           CI: false
 
+      # gh-pages pushes from its own cache clone, which does not inherit the
+      # credentials actions/checkout wrote into this working copy — so the
+      # remote and committer have to be passed in explicitly. The token is
+      # referenced through the environment to keep it out of the command echo.
       - name: Publish build to gh-pages
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          npx gh-pages --dist build --message "Deploy ${{ github.sha }}"
+          npx gh-pages \
+            --dist build \
+            --repo "https://x-access-token:${GH_TOKEN}@github.com/${REPO}.git" \
+            --user "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>" \
+            --message "Deploy ${{ github.sha }}"

@@ -60,6 +60,12 @@ const Contact = () => {
             me.
           </p>
 
+          <p>
+            Tell me what the data is, where it comes from and what decision it
+            needs to support — that is usually enough for me to say whether I
+            can help.
+          </p>
+
           <div className="contact-form">
             <form ref={refForm} onSubmit={sendEmail}>
               <ul>
@@ -134,19 +140,23 @@ const Contact = () => {
               </a>
             </div>
           </div>
-        </aside>
-      </div>
 
-      <div className="map-wrap">
-        <MapContainer center={profile.coords} zoom={12} scrollWheelZoom={false}>
-          <TileLayer
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            attribution="&copy; OpenStreetMap contributors"
-          />
-          <Marker position={profile.coords}>
-            <Popup>{profile.city}</Popup>
-          </Marker>
-        </MapContainer>
+          <div className="map-wrap">
+            <MapContainer
+              center={profile.coords}
+              zoom={12}
+              scrollWheelZoom={false}
+            >
+              <TileLayer
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                attribution="&copy; OpenStreetMap contributors"
+              />
+              <Marker position={profile.coords}>
+                <Popup>{profile.city}</Popup>
+              </Marker>
+            </MapContainer>
+          </div>
+        </aside>
       </div>
     </div>
   )

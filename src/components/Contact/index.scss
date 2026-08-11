@@ -1,15 +1,17 @@
 @import '../../styles/variables';
 
 .contact-page {
+  // The right track is fixed at the square's width so the details card and the
+  // map share an edge; the form takes whatever is left.
   .contact-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    grid-template-columns: minmax(0, 1fr) 42rem;
     gap: 5rem;
     align-items: start;
   }
 
   .text-zone {
-    max-width: 64rem;
+    max-width: 68rem;
   }
 }
 
@@ -47,7 +49,7 @@
     font-size: 1.7rem;
     color: $ink;
     padding: 0 1.6rem;
-    height: 5rem;
+    height: 5.6rem;
     border-radius: 2px;
     transition: border-color 0.2s ease-out, box-shadow 0.2s ease-out;
 
@@ -65,7 +67,7 @@
 
   textarea {
     height: auto;
-    min-height: 16rem;
+    min-height: 24rem;
     padding: 1.4rem 1.6rem;
     line-height: 1.6;
     resize: vertical;
@@ -123,6 +125,8 @@
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
+  width: 100%;
+  max-width: 42rem;
   opacity: 0;
   animation: fadeIn 1s 1s forwards;
 }
@@ -210,21 +214,16 @@
   }
 }
 
-// Full width beneath both columns — it anchors the page instead of leaving a
-// void under the shorter column.
+// Square, sized to the details column — deliberately not a full-width band.
 .map-wrap {
   width: 100%;
-  height: 36rem;
-  margin-top: 4rem;
+  max-width: 42rem;
+  aspect-ratio: 1 / 1;
   border: 1px solid $rule;
   border-radius: 3px;
   overflow: hidden;
   opacity: 0;
   animation: fadeIn 1s 1.2s forwards;
-
-  @media screen and (max-width: $bp-sm) {
-    height: 28rem;
-  }
 }
 
 .leaflet-container {
@@ -237,6 +236,27 @@
   .contact-page .contact-grid {
     grid-template-columns: 1fr;
     gap: 4rem;
+  }
+
+  // Stacked: card and square sit side by side instead of one long column.
+  .contact-aside {
+    flex-direction: row;
+    align-items: flex-start;
+    max-width: none;
+
+    .info-card {
+      flex: 1 1 34rem;
+    }
+  }
+}
+
+@media screen and (max-width: $bp-md) {
+  .contact-aside {
+    flex-direction: column;
+
+    .map-wrap {
+      max-width: none;
+    }
   }
 }
 

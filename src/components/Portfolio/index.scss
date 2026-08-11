@@ -21,15 +21,19 @@
     }
   }
 
-  // Six repositories across three columns — two full rows, no orphan gaps.
+  // A six-column track, so featured cards take a half row and the rest take a
+  // third. With two featured and three regular projects that fills two rows
+  // exactly. Adding a project? Keep featured even and the remainder a multiple
+  // of three, or the last row will end in a gap.
   .project-grid {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: 2.4rem;
   }
 
   .project-card {
     @include card;
+    grid-column: span 2;
     display: flex;
     flex-direction: column;
     padding: 2.6rem 2.6rem 2.2rem;
@@ -53,6 +57,7 @@
     }
 
     &.featured {
+      grid-column: span 3;
       border-top: 3px solid $gold;
 
       .eyebrow {
@@ -215,6 +220,11 @@
 
     .project-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .project-card,
+    .project-card.featured {
+      grid-column: span 1;
     }
   }
 

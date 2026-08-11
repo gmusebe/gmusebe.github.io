@@ -195,15 +195,6 @@ export const projects = [
     topics: ['r', 'statistics'],
     url: 'https://github.com/gmusebe/Date-Analysis-with-R',
   },
-  {
-    name: 'belinda-odhiambo',
-    title: 'Portfolio Site — Belinda Odhiambo',
-    description:
-      'A commissioned personal website: design, build and deploy front to back.',
-    language: 'JavaScript',
-    topics: ['web', 'frontend'],
-    url: 'https://github.com/gmusebe/belinda-odhiambo',
-  },
 ]
 
 // Forked repositories kept for study — listed compactly rather than as cards.
