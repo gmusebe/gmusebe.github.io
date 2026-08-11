@@ -1,0 +1,43 @@
+name: Deploy site
+
+# The live site is served from the gh-pages branch, which holds the compiled
+# build — never the source on main. This builds main and publishes the result
+# there, so a push to main is enough to update gmusebe.github.io.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy-gh-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm test -- --watchAll=false
+
+      - run: npm run build
+        env:
+          # CRA turns warnings into errors when CI is set; a stray lint
+          # warning should not block a deploy.
+          CI: false
+
+      - name: Publish build to gh-pages
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          npx gh-pages --dist build --message "Deploy ${{ github.sha }}"
