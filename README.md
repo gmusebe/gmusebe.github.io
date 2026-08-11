@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# gmusebe.github.io
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Personal site of **Ivan Musebe** — Research Data Engineer & Analyst.
+Live at [gmusebe.github.io](https://gmusebe.github.io/).
 
-## Available Scripts
+Built with Create React App, React Router and Sass, deployed to GitHub Pages.
 
-In the project directory, you can run:
+## Structure
 
-### `npm start`
+```
+src/
+  data/profile.js        all site copy: bio, disciplines, projects, links
+  styles/_variables.scss design tokens — typeface, palette, breakpoints
+  components/
+    Layout/              shell, shared page furniture (.container, .flat-button)
+    Sidebar/             fixed nav rail; becomes a top bar under 900px
+    Home/                hero + discipline cards
+    About/               bio, spinning tool cube, toolbox grid
+    Portfolio/           project grid built from data/profile.js
+    Speaking/            talks & advisory: subjects, formats, engagements
+    Contact/             EmailJS form, details card, Leaflet map
+    AnimatedLetters/     per-character entrance animation
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Content lives in [`src/data/profile.js`](src/data/profile.js) — edit it there
+rather than in the components. Typeface and colours live in
+[`src/styles/_variables.scss`](src/styles/_variables.scss).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The site is set entirely in **EB Garamond**, loaded from Google Fonts in
+[`public/index.html`](public/index.html) with a local-Garamond fallback stack.
 
-### `npm test`
+## Scripts
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+npm install       # install dependencies
+npm start         # dev server on http://localhost:3000
+npm test          # run tests
+npm run build     # production build into build/
+npm run deploy    # build and publish to the gh-pages branch
+```
 
-### `npm run build`
+## Third-party services
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **EmailJS** powers the contact form (service/template/public keys are in
+  `src/components/Contact/index.js`; the public key is also initialised in
+  `public/index.html`).
+- **Leaflet / OpenStreetMap** renders the map on the contact page.

@@ -1,111 +1,251 @@
+@import '../../styles/variables';
+
+.contact-page {
+  .contact-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .text-zone {
+    max-width: 64rem;
+  }
+}
+
 .contact-form {
   width: 100%;
-  margin-top: 20px;
+  margin-top: 3rem;
 
   ul {
     padding: 0;
     margin: 0;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.4rem;
 
     li {
-      padding: 0;
-      margin: 0;
-      list-style: none;
-      margin-bottom: 10px;
+      grid-column: 1 / -1;
       opacity: 0;
-      overflow: hidden;
-      display: block;
-      clear: both;
-      position: relative;
-      animation: fadeInUp 2s 2s;
+      animation: fadeInUp 1s 1.2s;
       animation-fill-mode: forwards;
     }
 
     li.half {
-      width: 49%;
-      margin-left: 2%;
-      float: left;
-      clear: none;
-
-      &:first-child {
-        margin-left: 0;
-      }
+      grid-column: auto;
     }
   }
 
   input[type='text'],
-  input[type='email'] {
+  input[type='email'],
+  textarea {
     width: 100%;
-    border: 0;
-    background: #115173;
-    height: 50px;
-    font-size: 16px;
-    color: #fff;
-    padding: 0 20px;
-    box-sizing: border-box;
+    border: 1px solid $rule;
+    background: $paper-raised;
+    font-family: $font-serif;
+    font-size: 1.7rem;
+    color: $ink;
+    padding: 0 1.6rem;
+    height: 5rem;
+    border-radius: 2px;
+    transition: border-color 0.2s ease-out, box-shadow 0.2s ease-out;
+
+    &::placeholder {
+      color: $muted;
+      font-style: italic;
+    }
+
+    &:focus {
+      outline: 0;
+      border-color: $ink;
+      box-shadow: 0 0 0 3px rgba($gold, 0.35);
+    }
   }
 
   textarea {
-    width: 100%;
-    border: 0;
-    background: #115173;
-    height: 50px;
-    font-size: 16px;
-    color: #fff;
-    padding: 20px;
-    min-height: 150px;
-    box-sizing: border-box;
+    height: auto;
+    min-height: 16rem;
+    padding: 1.4rem 1.6rem;
+    line-height: 1.6;
+    resize: vertical;
   }
 
-  .flat-button {
-    color: #0c1d36;
-    background: 0 0;
-    font: 11px;
-    letter-spacing: 3px;
-    text-decoration: none;
-    padding: 8px 10px;
-    border: 1px solid #0c1d36;
-    float: right;
-    border-radius: 4px;
+  .form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.5rem;
+  }
 
+  .form-status {
+    font-size: 1.6rem;
+    margin-right: auto;
+
+    &.sent {
+      color: $gold-deep;
+    }
+
+    &.error {
+      color: #a3341f;
+    }
+
+    &.sending {
+      color: $muted;
+      font-style: italic;
+    }
+  }
+
+  // input[type=submit] otherwise keeps the UA's own colour and chrome.
+  input.flat-button {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    color: $ink;
+
+    &:hover {
+      background: $ink;
+      color: $paper;
+    }
+
+    &[disabled] {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
   }
 }
 
-.info-map {
-  position: absolute;
-  background-color: #000;
-  top: 50px;
-  right: 30%;
-  z-index: 999999;
-  width: 267px;
-  padding: 20px;
-  color: #fff;
-  font-family: 'Helvetica';
-  font-size: 17px;
-  font-weight: 300;
+// ---------------------------------------------------------------------------
+// Right column: details card stacked above the map. Nothing overlaps now.
+// ---------------------------------------------------------------------------
+.contact-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
   opacity: 0;
-  animation: fadeIn 1s 1.5s;
-  animation-fill-mode: forwards;
+  animation: fadeIn 1s 1s forwards;
+}
 
-  span {
-    font-size: 16px;
-    display: block;
-    padding-top: 20px;
-    color: #ffd700;
+.info-card {
+  @include card;
+  padding: 3rem 2.8rem;
+
+  h2 {
+    font-size: 2.6rem;
+    font-weight: 600;
+    margin: 0;
+    color: $ink;
+  }
+
+  .info-role {
+    font-size: 1.7rem;
+    font-style: italic;
+    color: $muted;
+    margin: 0.4rem 0 2.4rem;
+  }
+
+  dl {
+    margin: 0;
+    padding-top: 2rem;
+    border-top: 1px solid $rule;
+  }
+
+  dt {
+    font-size: 1.2rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: $muted;
+    margin-bottom: 0.4rem;
+  }
+
+  dd {
+    margin: 0 0 1.6rem;
+    font-size: 1.7rem;
+    color: $ink;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      color: $ink;
+      text-decoration: none;
+      border-bottom: 1px solid rgba($ink, 0.25);
+
+      &:hover {
+        color: $gold-deep;
+        border-color: $gold-deep;
+      }
+    }
+  }
+
+  .info-socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2.4rem;
+    padding-top: 2.4rem;
+    border-top: 1px solid $rule;
+
+    a {
+      font-size: 1.5rem;
+      color: $ink-soft;
+      text-decoration: none;
+      padding: 0.6rem 1.2rem;
+      border: 1px solid $rule;
+      border-radius: 999px;
+      transition: all 0.25s ease-out;
+
+      svg {
+        margin-right: 0.6rem;
+      }
+
+      &:hover {
+        color: $ink;
+        border-color: $ink;
+        background: rgba($gold, 0.18);
+      }
+    }
   }
 }
 
+// Full width beneath both columns — it anchors the page instead of leaving a
+// void under the shorter column.
 .map-wrap {
-  background: rgba(8, 253, 216, 0.1);
-  float: right;
-  width: 53%;
-  height: 100%;
+  width: 100%;
+  height: 36rem;
+  margin-top: 4rem;
+  border: 1px solid $rule;
+  border-radius: 3px;
+  overflow: hidden;
+  opacity: 0;
+  animation: fadeIn 1s 1.2s forwards;
+
+  @media screen and (max-width: $bp-sm) {
+    height: 28rem;
+  }
 }
 
 .leaflet-container {
   width: 100%;
   height: 100%;
-  position: relative;
-  opacity: 0;
-  animation: backInRight 1s 1.2s;
-  animation-fill-mode: forwards;
+  font-family: $font-serif;
+}
+
+@media screen and (max-width: $bp-lg) {
+  .contact-page .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+}
+
+@media screen and (max-width: $bp-sm) {
+  .contact-form ul {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-form ul li.half {
+    grid-column: 1 / -1;
+  }
 }

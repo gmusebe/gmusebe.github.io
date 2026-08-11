@@ -1,8 +1,16 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { render, screen } from '@testing-library/react'
+import { MemoryRouter } from 'react-router-dom'
+import App from './App'
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+test('renders the home introduction', () => {
+  render(
+    <MemoryRouter initialEntries={['/']}>
+      <App />
+    </MemoryRouter>
+  )
+
+  expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent(
+    /open-source intelligence/i
+  )
+  expect(screen.getByRole('link', { name: /view work/i })).toBeInTheDocument()
+})

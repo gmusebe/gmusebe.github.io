@@ -1,0 +1,230 @@
+@import '../../styles/variables';
+
+.portfolio-page {
+  .portfolio-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 5rem;
+    align-items: end;
+    margin-bottom: 5rem;
+
+    h1 {
+      margin-bottom: 0;
+    }
+
+    .text-zone {
+      max-width: 64rem;
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  // Six repositories across three columns — two full rows, no orphan gaps.
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.4rem;
+  }
+
+  .project-card {
+    @include card;
+    display: flex;
+    flex-direction: column;
+    padding: 2.6rem 2.6rem 2.2rem;
+    text-decoration: none;
+    color: inherit;
+    animation: fadeInUp 0.8s 0.9s backwards;
+
+    &:hover {
+      transform: translateY(-4px);
+      border-color: rgba($ink, 0.35);
+      box-shadow: 0 14px 30px rgba($ink, 0.1);
+
+      .project-arrow {
+        opacity: 1;
+        transform: translate(2px, -2px);
+      }
+
+      h3 {
+        color: $gold-deep;
+      }
+    }
+
+    &.featured {
+      border-top: 3px solid $gold;
+
+      .eyebrow {
+        color: $gold-deep;
+      }
+    }
+
+    .project-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1rem;
+
+      .eyebrow {
+        margin-bottom: 0;
+      }
+    }
+
+    .project-arrow {
+      font-size: 1.3rem;
+      color: $muted;
+      opacity: 0;
+      transition: opacity 0.25s ease-out, transform 0.25s ease-out;
+    }
+
+    h3 {
+      font-size: 2.3rem;
+      font-weight: 600;
+      line-height: 1.25;
+      margin: 1.4rem 0 1rem;
+      color: $ink;
+      transition: color 0.25s ease-out;
+    }
+
+    p {
+      font-size: 1.6rem;
+      line-height: 1.6;
+      color: $body-text;
+      margin: 0 0 2.4rem;
+    }
+
+    .project-foot {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 1.2rem;
+      margin-top: auto;
+      padding-top: 1.6rem;
+      border-top: 1px solid $rule;
+    }
+
+    .project-lang {
+      font-size: 1.4rem;
+      color: $ink;
+      font-weight: 600;
+      white-space: nowrap;
+
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 0.8rem;
+        height: 0.8rem;
+        border-radius: 50%;
+        background: $gold;
+        margin-right: 0.7rem;
+        vertical-align: 0.05em;
+      }
+    }
+
+    .project-topics {
+      font-size: 1.35rem;
+      color: $muted;
+      letter-spacing: 0.04em;
+    }
+  }
+
+  // -----------------------------------------------------------------------
+  // Forked references
+  // -----------------------------------------------------------------------
+  .study-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    a {
+      display: inline-block;
+      font-size: 1.5rem;
+      padding: 0.8rem 1.4rem;
+      color: $ink-soft;
+      text-decoration: none;
+      border: 1px solid $rule;
+      border-radius: 999px;
+      transition: all 0.25s ease-out;
+
+      &:hover {
+        color: $ink;
+        border-color: $ink;
+        background: rgba($gold, 0.18);
+      }
+    }
+  }
+
+  // -----------------------------------------------------------------------
+  // Closing band
+  // -----------------------------------------------------------------------
+  .portfolio-cta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.5rem;
+    margin-top: 7rem;
+    padding: 3.5rem 4rem;
+    background: $ink;
+    border-radius: 3px;
+
+    h2 {
+      color: $paper;
+      font-size: 2.6rem;
+      font-weight: 600;
+      margin: 0 0 0.6rem;
+    }
+
+    p {
+      color: rgba($paper, 0.68);
+      font-size: 1.7rem;
+      margin: 0;
+      max-width: 52rem;
+    }
+
+    .flat-button {
+      border-color: rgba($paper, 0.45);
+      color: $paper;
+      white-space: nowrap;
+
+      svg {
+        margin-right: 0.8rem;
+      }
+
+      &:hover {
+        background: $gold;
+        border-color: $gold;
+        color: $ink;
+      }
+    }
+  }
+
+  // -----------------------------------------------------------------------
+  // Responsive collapse
+  // -----------------------------------------------------------------------
+  @media screen and (max-width: $bp-lg) {
+    .portfolio-intro {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .project-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media screen and (max-width: $bp-sm) {
+    .project-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .portfolio-cta {
+      padding: 2.8rem 2.4rem;
+    }
+  }
+}

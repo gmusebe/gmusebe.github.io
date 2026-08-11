@@ -1,20 +1,40 @@
+html {
+  font-size: 62.5%; /* 1rem = 10px */
+  box-sizing: border-box;
+}
 
-html{
-  font-size: 62.5%;
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
 }
 
 body {
   margin: 0;
-  font: 300 11px/1.4 'Helvetica Neue', 'sans-serif';
-  color: #767676;
-  background: #f8f8f8;
-  overflow: hidden;
-  display: block;
+  font: 400 1.7rem/1.65 'EB Garamond', 'Cormorant Garamond', Garamond,
+    'Adobe Garamond Pro', 'Palatino Linotype', 'Times New Roman', serif;
+  color: #3a4050;
+  background: #f8f7f4;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: 'EB Garamond', 'Cormorant Garamond', Garamond,
+    'Adobe Garamond Pro', 'Times New Roman', serif;
+  color: #0c1d36;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'SF Mono', Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+::selection {
+  background: #ffd700;
+  color: #0c1d36;
 }

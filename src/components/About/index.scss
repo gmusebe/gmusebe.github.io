@@ -1,55 +1,82 @@
+@import '../../styles/variables';
+
+.about-page {
+  .about-top {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .text-zone {
+    max-width: 64rem;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// The spinning cube now lives inside the right grid column instead of being
+// absolutely positioned over the page.
+// ---------------------------------------------------------------------------
+$cube: 300px;
+$half: $cube * 0.5;
+
 .stage-cube-cont {
-  width: 50%;
-  height: 100%;
-  top: 0;
-  padding-top: 18%;
-  margin-left: 0;
-  position: absolute;
-  right: 0;
+  position: relative;
+  width: 100%;
+  min-height: 48rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
+  perspective: 1400px;
 }
 
 .cubespinner {
+  position: relative;
+  width: $cube;
+  height: $cube;
   animation-name: spincube;
   animation-timing-function: ease-in-out;
   animation-iteration-count: infinite;
   animation-duration: 12s;
   transform-style: preserve-3d;
-  transform-origin: 100px 100px 0;
-  margin-left: calc(50% - 100px);
+  transform-origin: $half $half 0;
 
   div {
     position: absolute;
-    width: 200px;
-    height: 200px;
-    border: 1px solid #ccc;
-    background: rgba(226, 135, 135, 0.4);
+    width: $cube;
+    height: $cube;
+    border: 1px solid $rule;
+    background: rgba($paper-raised, 0.9);
+    box-shadow: 0 0 28px 0 rgba($ink, 0.16);
     text-align: center;
-    font-size: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 0 20px 0px #3264c8;
   }
 
-  .face1{
-    transform: translateZ(100px);
-    color: #dd0031;
+  img {
+    width: 45%;
+    height: auto;
   }
-  .face2{
-    transform: rotateY(90deg) translateZ(100px);
+
+  .face1 {
+    transform: translateZ($half);
   }
-  .face3{
-    transform: rotateY(90deg) rotateX(90deg) translateZ(100px);
+  .face2 {
+    transform: rotateY(90deg) translateZ($half);
   }
-  .face4{
-    transform: rotateY(180deg) rotateZ(90deg) translateZ(100px);
+  .face3 {
+    transform: rotateY(90deg) rotateX(90deg) translateZ($half);
   }
-  .face5{
-    transform: rotateY(-90deg) rotateZ(90deg) translateZ(100px);
+  .face4 {
+    transform: rotateY(180deg) rotateZ(90deg) translateZ($half);
   }
-  .face6{
-    transform: rotateX(-90deg) translateZ(100px);
+  .face5 {
+    transform: rotateY(-90deg) rotateZ(90deg) translateZ($half);
+  }
+  .face6 {
+    transform: rotateX(-90deg) translateZ($half);
   }
 }
 
@@ -72,5 +99,93 @@
   }
   83% {
     transform: rotateX(90deg);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// Toolbox — fills the width below the introduction.
+// ---------------------------------------------------------------------------
+.toolbox {
+  .toolbox-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.4rem;
+  }
+
+  .toolbox-group {
+    @include card;
+    padding: 2.8rem 2.6rem;
+
+    &:hover {
+      border-color: darken($rule, 8%);
+      box-shadow: 0 10px 24px rgba($ink, 0.07);
+    }
+
+    h3 {
+      font-size: 2.1rem;
+      font-weight: 600;
+      margin: 0 0 0.8rem;
+      color: $ink;
+    }
+
+    p {
+      font-size: 1.6rem;
+      line-height: 1.6;
+      color: $muted;
+      margin: 0 0 2rem;
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      font-size: 1.4rem;
+      line-height: 1;
+      padding: 0.7rem 1.1rem;
+      color: $ink-soft;
+      background: rgba($ink, 0.04);
+      border: 1px solid rgba($ink, 0.07);
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+  }
+}
+
+@media screen and (max-width: $bp-lg) {
+  .about-page .about-top {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+    gap: 3rem;
+  }
+
+  .toolbox .toolbox-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media screen and (max-width: $bp-md) {
+  .about-page .about-top {
+    grid-template-columns: 1fr;
+  }
+
+  .stage-cube-cont {
+    min-height: 32rem;
+    order: -1;
+    margin-bottom: 2rem;
+  }
+}
+
+@media screen and (max-width: $bp-sm) {
+  .stage-cube-cont {
+    display: none;
+  }
+
+  .toolbox .toolbox-grid {
+    grid-template-columns: 1fr;
   }
 }

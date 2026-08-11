@@ -1,25 +1,24 @@
+@import '../../../styles/variables';
+
+// The mark sits inside the hero's right column rather than floating over the
+// page, so it fills the space instead of creating it.
 .logo-container {
-  z-index: 0;
-  width: 0px;
-  height: 60px;
-  position: absolute;
-  top: 0;
-  right: 55%;
-  bottom: 65%;
-  left: 40%;
-  margin: auto;
+  position: relative;
+  width: 100%;
+  max-width: 42rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  animation: fadeIn 1.4s 1.2s forwards;
 
-  img {
-    width: 500px;
-    height: auto;
-  }
-
+  // The mark ships on a white plate; multiply drops that plate into the
+  // paper background instead of stamping a grey square on the page.
   .solid-logo {
-    position: absolute;
-    top: auto;
-    right: auto;
-    bottom: auto;
-    left: 0;
-    margin: auto;
-    
-  }}
+    width: 100%;
+    height: auto;
+    max-height: 46rem;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+  }
+}

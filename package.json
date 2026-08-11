@@ -36,6 +36,11 @@
       "react-app/jest"
     ]
   },
+  "jest": {
+    "moduleNameMapper": {
+      "^react-leaflet$": "<rootDir>/src/testUtils/reactLeafletMock.js"
+    }
+  },
   "browserslist": {
     "production": [
       ">0.2%",

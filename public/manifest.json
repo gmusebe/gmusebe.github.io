@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Ivan Musebe",
+  "name": "Ivan Musebe — Research Data Engineer & Analyst",
+  "description": "Data infrastructure, analysis and open-source intelligence.",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +21,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#0c1d36",
+  "background_color": "#f8f7f4"
 }

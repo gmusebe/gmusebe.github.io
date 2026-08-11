@@ -1,0 +1,288 @@
+@import '../../styles/variables';
+
+.speaking-page {
+  .speaking-intro {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: 5rem;
+    align-items: end;
+    margin-bottom: 2rem;
+
+    h1 {
+      margin-bottom: 0;
+    }
+
+    .text-zone {
+      max-width: 66rem;
+
+      p {
+        font-size: 1.9rem;
+        margin: 0 0 2.6rem;
+      }
+    }
+  }
+
+  // -----------------------------------------------------------------------
+  // Subjects
+  // -----------------------------------------------------------------------
+  .topic-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.4rem;
+  }
+
+  .topic-card {
+    @include card;
+    padding: 3rem 2.8rem;
+
+    &:hover {
+      border-color: darken($rule, 8%);
+      box-shadow: 0 10px 24px rgba($ink, 0.07);
+
+      .topic-icon {
+        background: $gold;
+        color: $ink;
+        border-color: $gold;
+      }
+    }
+
+    .topic-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 4.4rem;
+      height: 4.4rem;
+      margin-bottom: 1.8rem;
+      font-size: 1.7rem;
+      color: $ink;
+      border: 1px solid $rule;
+      border-radius: 50%;
+      transition: all 0.25s ease-out;
+    }
+
+    h3 {
+      font-size: 2.4rem;
+      font-weight: 600;
+      margin: 0 0 0.8rem;
+      color: $ink;
+    }
+
+    > p {
+      font-size: 1.7rem;
+      line-height: 1.6;
+      color: $body-text;
+      margin: 0 0 2rem;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      border-top: 1px solid $rule;
+    }
+
+    li {
+      position: relative;
+      font-size: 1.6rem;
+      line-height: 1.55;
+      color: $ink-soft;
+      padding: 1.2rem 0 1.2rem 1.8rem;
+      border-bottom: 1px solid rgba($rule, 0.6);
+
+      &:last-child {
+        border-bottom: 0;
+        padding-bottom: 0;
+      }
+
+      &::before {
+        content: '—';
+        position: absolute;
+        left: 0;
+        color: $gold-deep;
+      }
+    }
+  }
+
+  // -----------------------------------------------------------------------
+  // Formats
+  // -----------------------------------------------------------------------
+  .format-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 3.5rem;
+    padding-top: 1rem;
+  }
+
+  .format-item {
+    border-top: 2px solid $ink;
+    padding-top: 2rem;
+
+    .format-number {
+      display: block;
+      font-size: 1.4rem;
+      letter-spacing: 0.2em;
+      color: $gold-deep;
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin: 0 0 0.8rem;
+      color: $ink;
+    }
+
+    p {
+      font-size: 1.65rem;
+      line-height: 1.6;
+      color: $body-text;
+      margin: 0;
+    }
+  }
+
+  .audiences {
+    margin-top: 5rem;
+    padding-top: 3rem;
+    border-top: 1px solid $rule;
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      font-size: 1.5rem;
+      padding: 0.8rem 1.4rem;
+      color: $ink-soft;
+      background: rgba($ink, 0.04);
+      border: 1px solid rgba($ink, 0.07);
+      border-radius: 999px;
+    }
+  }
+
+  // -----------------------------------------------------------------------
+  // Engagements (rendered only when data/profile.js has entries)
+  // -----------------------------------------------------------------------
+  .engagement-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid $rule;
+
+    li {
+      display: grid;
+      grid-template-columns: 8rem minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: baseline;
+      padding: 2rem 0;
+      border-bottom: 1px solid $rule;
+    }
+
+    .engagement-year {
+      font-size: 1.5rem;
+      color: $muted;
+      letter-spacing: 0.08em;
+    }
+
+    .engagement-title {
+      font-size: 1.9rem;
+      color: $ink;
+
+      a {
+        text-decoration: none;
+        border-bottom: 1px solid rgba($ink, 0.25);
+
+        &:hover {
+          color: $gold-deep;
+          border-color: $gold-deep;
+        }
+      }
+    }
+
+    .engagement-event {
+      font-size: 1.6rem;
+      font-style: italic;
+      color: $muted;
+    }
+
+    @media screen and (max-width: $bp-md) {
+      li {
+        grid-template-columns: 1fr;
+        gap: 0.4rem;
+      }
+    }
+  }
+
+  // -----------------------------------------------------------------------
+  // Closing band
+  // -----------------------------------------------------------------------
+  .speaking-cta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.5rem;
+    margin-top: 7rem;
+    padding: 3.5rem 4rem;
+    background: $ink;
+    border-radius: 3px;
+
+    h2 {
+      color: $paper;
+      font-size: 2.6rem;
+      font-weight: 600;
+      margin: 0 0 0.6rem;
+    }
+
+    p {
+      color: rgba($paper, 0.68);
+      font-size: 1.7rem;
+      margin: 0;
+      max-width: 58rem;
+    }
+
+    .flat-button {
+      border-color: rgba($paper, 0.45);
+      color: $paper;
+      white-space: nowrap;
+
+      &:hover {
+        background: $gold;
+        border-color: $gold;
+        color: $ink;
+      }
+    }
+  }
+
+  // -----------------------------------------------------------------------
+  // Responsive collapse
+  // -----------------------------------------------------------------------
+  @media screen and (max-width: $bp-lg) {
+    .speaking-intro {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .format-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+
+  @media screen and (max-width: $bp-md) {
+    .topic-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media screen and (max-width: $bp-sm) {
+    .speaking-cta {
+      padding: 2.8rem 2.4rem;
+    }
+  }
+}
